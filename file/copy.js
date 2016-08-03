@@ -1,3 +1,5 @@
+'use strict';
+
 var fs = require('fs');
 /*
 * 拷贝一个文件
@@ -8,7 +10,10 @@ function copy(source,dest){
     if(err){
         throw err;
     }
-      fs.appendFile(dest,data);
+    fs.writeFile(dest,data,(err) =>{
+        if(err) throw err;
+        console.log("Writing finished!");
+    });
 
    })
 }

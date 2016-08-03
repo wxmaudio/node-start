@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="clock"></div>
+<script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET','/reg',true);
+    xhr.onreadystatechange = function(){
+        console.log(xhr);
+        if(xhr.readyState == 4){
+            if(xhr.state == 200){
+                document.querySelector('.clock') = xhr.responseText;
+            }
+            else {
+                document.querySelector('.clock') = xhr.statusText;
+            }
+        }
+    }
+
+    xhr.send(null);
+
+</script>
+</body>
+</html>
